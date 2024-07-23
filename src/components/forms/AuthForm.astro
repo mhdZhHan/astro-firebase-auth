@@ -8,19 +8,21 @@ type Props = {
 const { type } = Astro.props
 ---
 
-<form action="/signup" method="POST">
+<form id="authForm">
 	{
 		type === "signup" ? (
 			<div class="mb-4">
-				<label for="fullname" class="block text-sm font-semibold mb-2">
+				<label for="fullName" class="block text-sm font-semibold mb-2">
 					Full Name
 				</label>
-				<InputBox type="text" id="fullname" name="fullname" required />
+				<InputBox type="text" id="fullName" name="fullName" required />
 			</div>
 		) : (
 			""
 		)
 	}
+	<input type="hidden" name="formType" value={type} />
+
 	<div class="mb-4">
 		<label for="email" class="block text-sm font-semibold mb-2">Email</label
 		>
@@ -38,3 +40,5 @@ const { type } = Astro.props
 		>{type === "signup" ? "Signup" : "Login"}</button
 	>
 </form>
+
+<script src="../../scripts/auth.ts"></script>
