@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import type { UserProfile } from "../../types/UserProfile.type"
+
+const { user } = Astro.locals as {
+	user: {
+		fullName: string | null
+		email: string | null
+		photoURL: string | null
+	}
+}
+---
+
+<Layout title="User Profile">
+	<section class="min-h-screen flex flex-col items-center justify-center">
+		<div
+			class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-lg w-full max-w-md text-center border border-gray-700"
+		>
+			<div
+				class="w-24 h-24 rounded-full mx-auto mb-4"
+				style="background: linear-gradient(135deg, #ff7a18, #af002d 71%);"
+			>
+			</div>
+			<h2 class="text-3xl font-extrabold mb-2">{user?.fullName}</h2>
+			<p class="text-xl mb-6">{user?.email}</p>
+			<button
+				id="logoutBtn"
+				class="px-6 py-2 bg-primary text-white rounded-full hover:bg-secondary transition"
+				>Logout</button
+			>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	import { AccountLogout } from "../../scripts/auth"
+	const logoutBtn = document.querySelector("#logoutBtn") as HTMLLIElement
+
+	AccountLogout(logoutBtn)
+</script>
