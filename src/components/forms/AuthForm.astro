@@ -1,0 +1,40 @@
+---
+import InputBox from "../common/InputBox.astro"
+
+type Props = {
+	type: "login" | "signup"
+}
+
+const { type } = Astro.props
+---
+
+<form action="/signup" method="POST">
+	{
+		type === "signup" ? (
+			<div class="mb-4">
+				<label for="fullname" class="block text-sm font-semibold mb-2">
+					Full Name
+				</label>
+				<InputBox type="text" id="fullname" name="fullname" required />
+			</div>
+		) : (
+			""
+		)
+	}
+	<div class="mb-4">
+		<label for="email" class="block text-sm font-semibold mb-2">Email</label
+		>
+		<InputBox type="email" id="email" name="email" required />
+	</div>
+	<div class="mb-6">
+		<label for="password" class="block text-sm font-semibold mb-2"
+			>Password</label
+		>
+		<InputBox type="password" id="password" name="password" required />
+	</div>
+	<button
+		type="submit"
+		class="w-full px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition"
+		>{type === "signup" ? "Signup" : "Login"}</button
+	>
+</form>
