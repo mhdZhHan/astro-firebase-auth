@@ -57,5 +57,5 @@ Open your browser and navigate to `http://localhost:3000`.
 
 ### Learn More
 
-For a detailed guide on integrating Firebase Auth with Astro Actions, check out my [blog post](https://mohammedsh.xyz/blog/2024-07-24-integrating-firebase-auth-into-your-astro-project-with-astro-actions):
+For a detailed guide on integrating Firebase Auth with Astro Actions, check out my [blog post](https://mohammedsh.xyz/blog/2024-07-24-integrating-firebase-auth-into-your-astro-project-with-astro-actions)
 
